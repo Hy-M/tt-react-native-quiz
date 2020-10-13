@@ -15,7 +15,7 @@ const BlogStack = createStackNavigator();
 const QuizStackScreen = () => {
 	return (
 		<QuizStack.Navigator>
-			<QuizStack.Screen name="Quiz" component={Quiz} />
+			<QuizStack.Screen name="Teacher Tapp Tech Test" component={Quiz} />
 		</QuizStack.Navigator>
 	);
 };
@@ -23,7 +23,7 @@ const QuizStackScreen = () => {
 const BlogStackScreen = () => {
 	return (
 		<BlogStack.Navigator>
-			<BlogStack.Screen name="Blog" component={Blog} />
+			<BlogStack.Screen name="Teacher Tapp Tech Test" component={Blog} />
 		</BlogStack.Navigator>
 	);
 };
@@ -31,7 +31,13 @@ const BlogStackScreen = () => {
 export default function App() {
 	return (
 		<NavigationContainer>
-			<Tab.Navigator initialRouteName="Quiz">
+			<Tab.Navigator
+				initialRouteName="Quiz"
+				tabBarOptions={{
+					activeTintColor: "#50d3a7",
+					inactiveTintColor: "gray",
+				}}
+			>
 				<Tab.Screen name="Quiz" component={QuizStackScreen} />
 				<Tab.Screen name="Blog" component={BlogStackScreen} />
 			</Tab.Navigator>
