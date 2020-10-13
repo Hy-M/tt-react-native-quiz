@@ -31,7 +31,7 @@ const BlogStackScreen = () => {
 export default function App() {
 	return (
 		<NavigationContainer>
-			<Tab.Navigator>
+			<Tab.Navigator initialRouteName="Quiz">
 				<Tab.Screen name="Quiz" component={QuizStackScreen} />
 				<Tab.Screen name="Blog" component={BlogStackScreen} />
 			</Tab.Navigator>
