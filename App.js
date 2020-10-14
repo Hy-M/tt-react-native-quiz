@@ -46,18 +46,60 @@ const QuizStackScreen = ({ navigation }) => {
 	);
 };
 
-const BlogStackScreen = () => {
+const BlogStackScreen = ({ navigation }) => {
 	return (
 		<BlogStack.Navigator>
-			<BlogStack.Screen name="Blog" component={Blog} />
+			<BlogStack.Screen
+				name="Blog"
+				component={Blog}
+				options={{
+					headerLeft: () => {
+						return (
+							<TouchableOpacity onPress={() => navigation.openDrawer()}>
+								<Icon
+									name="bars"
+									type="font-awesome"
+									color="#50d3a7"
+									style={{
+										padding: 10,
+										marginRight: 10,
+										fontSize: 20,
+									}}
+								/>
+							</TouchableOpacity>
+						);
+					},
+				}}
+			/>
 		</BlogStack.Navigator>
 	);
 };
 
-const FaqStackScreen = () => {
+const FaqStackScreen = ({ navigation }) => {
 	return (
 		<FaqStack.Navigator>
-			<FaqStack.Screen name="FAQ's" component={Faq} />
+			<FaqStack.Screen
+				name="FAQ's"
+				component={Faq}
+				options={{
+					headerLeft: () => {
+						return (
+							<TouchableOpacity onPress={() => navigation.openDrawer()}>
+								<Icon
+									name="bars"
+									type="font-awesome"
+									color="#50d3a7"
+									style={{
+										padding: 10,
+										marginRight: 10,
+										fontSize: 20,
+									}}
+								/>
+							</TouchableOpacity>
+						);
+					},
+				}}
+			/>
 		</FaqStack.Navigator>
 	);
 };
