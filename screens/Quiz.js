@@ -90,7 +90,7 @@ export default class Quiz extends Component {
 									uncheckedIcon=""
 									checked={this.state[answer.id] || false}
 									containerStyle={
-										this.state.selections.includes(answer.id)
+										selections.includes(answer.id)
 											? {
 													backgroundColor: "#50d3a7",
 											  }
