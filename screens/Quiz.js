@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { CheckBox } from "react-native-elements";
 
 export default class Quiz extends Component {
@@ -100,11 +100,11 @@ export default class Quiz extends Component {
 								/>
 							))}
 						</View>
-						<Button
-							style={styles.btn}
-							title="Submit"
+						<TouchableOpacity
 							onPress={() => this.setState({ submitChoices: true })}
-						/>
+						>
+							<Text style={styles.btn}>Submit</Text>
+						</TouchableOpacity>
 					</View>
 				);
 			} else {
@@ -122,15 +122,15 @@ export default class Quiz extends Component {
 								}
 							}
 						})}
-						<Button
-							style={styles.btn}
-							title="Retake quiz"
+						<TouchableOpacity
 							onPress={() =>
 								this.setState({ startQuiz: false }, () =>
 									this.handleStartPress()
 								)
 							}
-						/>
+						>
+							<Text style={styles.btn}>Retake</Text>
+						</TouchableOpacity>
 					</View>
 				);
 			}
@@ -138,11 +138,12 @@ export default class Quiz extends Component {
 			return (
 				<View style={styles.container}>
 					<Text style={styles.heading}>Quiz</Text>
-					<Button
-						style={styles.btn}
-						title="Start quiz"
-						onPress={() => this.handleStartPress()}
-					/>
+					<Text style={styles.mainText}>
+						A unique quiz with only one question.
+					</Text>
+					<TouchableOpacity onPress={() => this.handleStartPress()}>
+						<Text style={styles.btn}>Start</Text>
+					</TouchableOpacity>
 				</View>
 			);
 		}
@@ -174,6 +175,15 @@ const styles = StyleSheet.create({
 	btn: {
 		backgroundColor: "#50d3a7",
 		padding: 10,
+		borderColor: "white",
+		borderWidth: 1,
+		borderRadius: 12,
+		color: "white",
+		fontSize: 16,
+		overflow: "hidden",
+		textAlign: "center",
+		marginTop: 20,
+		width: 100,
 	},
 	heading: {
 		fontSize: 32,
