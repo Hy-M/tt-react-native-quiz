@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, View, Button, TouchableOpacity } from "react-native";
+import { Text, View, Button, TouchableOpacity, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -31,11 +31,7 @@ const QuizStackScreen = ({ navigation }) => {
 									name="bars"
 									type="font-awesome"
 									color="#50d3a7"
-									style={{
-										padding: 10,
-										marginRight: 10,
-										fontSize: 20,
-									}}
+									style={styles.menuIcon}
 								/>
 							</TouchableOpacity>
 						);
@@ -60,11 +56,7 @@ const BlogStackScreen = ({ navigation }) => {
 									name="bars"
 									type="font-awesome"
 									color="#50d3a7"
-									style={{
-										padding: 10,
-										marginRight: 10,
-										fontSize: 20,
-									}}
+									style={styles.menuIcon}
 								/>
 							</TouchableOpacity>
 						);
@@ -89,11 +81,7 @@ const FaqStackScreen = ({ navigation }) => {
 									name="bars"
 									type="font-awesome"
 									color="#50d3a7"
-									style={{
-										padding: 10,
-										marginRight: 10,
-										fontSize: 20,
-									}}
+									style={styles.menuIcon}
 								/>
 							</TouchableOpacity>
 						);
@@ -132,3 +120,11 @@ export default function App() {
 		</NavigationContainer>
 	);
 }
+
+const styles = StyleSheet.create({
+	menuIcon: {
+		padding: 10,
+		marginLeft: 10,
+		// fontSize: 20,
+	},
+});
