@@ -22,12 +22,12 @@ export default class Accordion extends Component {
 
 	render() {
 		return (
-			<View>
+			<View style={styles.accordion}>
 				<TouchableOpacity
 					style={styles.accordionTitle}
 					onPress={() => this.toggleExpand()}
 				>
-					<Text>{this.props.title}</Text>
+					<Text style={styles.mainText}>{this.props.title}</Text>
 					<Icon
 						type="font-awesome"
 						name={this.state.expanded ? "arrow-up" : "arrow-down"}
@@ -38,7 +38,7 @@ export default class Accordion extends Component {
 				</TouchableOpacity>
 				{this.state.expanded && (
 					<View style={styles.accordionBody}>
-						<Text>{this.props.body}</Text>
+						<Text style={styles.subText}>{this.props.body}</Text>
 					</View>
 				)}
 			</View>
@@ -47,26 +47,13 @@ export default class Accordion extends Component {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#fff",
-		// alignItems: "center",
-		// justifyContent: "center",
-	},
-	innerContainer: {
-		// marginLeft: 10,
-		// marginRight: 10,
-	},
 	mainText: {
 		fontSize: 16,
-		textAlign: "center",
-		marginBottom: 20,
 		lineHeight: 25,
+		width: "80%",
 	},
 	subText: {
-		fontSize: 11,
-		textAlign: "center",
-		marginBottom: 20,
+		lineHeight: 22,
 	},
 	heading: {
 		fontSize: 32,
@@ -74,14 +61,21 @@ const styles = StyleSheet.create({
 		color: "#50d3a7",
 		fontWeight: "bold",
 	},
+	accordion: {
+		width: 330,
+		backgroundColor: "#f0f0f0",
+		marginBottom: 15,
+	},
 	accordionTitle: {
 		flexDirection: "row",
-		height: 50,
-		paddingLeft: 25,
-		paddingRight: 25,
-		marginBottom: 5,
+		height: 60,
+		alignItems: "center",
+		justifyContent: "space-between",
+		paddingLeft: 15,
+		paddingRight: 15,
 	},
 	accordionBody: {
 		padding: 15,
+		backgroundColor: "white",
 	},
 });

@@ -9,15 +9,15 @@ export default class Faq extends Component {
 			{
 				title: "What does this app do?",
 				data:
-					"Not much. But it was built with love and effort to grow my React Native skills!",
+					"Not much. But it was built with love and effort to grow my React Native skills.",
 			},
 			{
-				title: "Did you build this accordion from scratch?",
+				title: "Did you build this accordion?",
 				data: "I did indeed.",
 			},
 			{
 				title: "What is the largest bird in the world?",
-				data: "An ostrich. They can reach heights of 9 feet.",
+				data: "An ostrich. They can reach 9 feet in height.",
 			},
 		],
 	};
@@ -25,11 +25,15 @@ export default class Faq extends Component {
 	render() {
 		const { faqData } = this.state;
 		return (
-			<View style={styles.container}>
-				<Text style={styles.heading}>Frequently asked questions</Text>
-				{faqData.map((faq) => {
-					return <Accordion title={faq.title} body={faq.data} />;
-				})}
+			<View>
+				<View style={styles.container}>
+					<Text style={styles.heading}>Frequently asked questions</Text>
+				</View>
+				<View style={styles.accordion}>
+					{faqData.map((faq) => {
+						return <Accordion title={faq.title} body={faq.data} />;
+					})}
+				</View>
 			</View>
 		);
 	}
@@ -37,14 +41,15 @@ export default class Faq extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: "#fff",
 		alignItems: "center",
 		justifyContent: "center",
+		paddingTop: 20,
 	},
-	innerContainer: {
-		marginLeft: 10,
-		marginRight: 10,
+	accordion: {
+		backgroundColor: "#fff",
+		height: "100%",
+		alignItems: "center",
 	},
 	mainText: {
 		fontSize: 16,
