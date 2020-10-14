@@ -1,13 +1,38 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { Component } from "react";
 import { Text, View, StyleSheet, Image, Button } from "react-native";
+import Accordion from "../components/Accordion";
 
-export default function Faq() {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.heading}>FAqqqq</Text>
-		</View>
-	);
+export default class Faq extends Component {
+	state = {
+		faqData: [
+			{
+				title: "What does this app do?",
+				data:
+					"Not much. But it was built with love and effort to grow my React Native skills!",
+			},
+			{
+				title: "Did you build this accordion from scratch?",
+				data: "I did indeed.",
+			},
+			{
+				title: "What is the largest bird in the world?",
+				data: "An ostrich. They can reach heights of 9 feet.",
+			},
+		],
+	};
+
+	render() {
+		const { faqData } = this.state;
+		return (
+			<View style={styles.container}>
+				<Text style={styles.heading}>Frequently asked questions</Text>
+				{faqData.map((faq) => {
+					return <Accordion title={faq.title} body={faq.data} />;
+				})}
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
