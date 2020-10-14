@@ -17,26 +17,31 @@ const BlogStack = createStackNavigator();
 const FaqStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const MenuButton = (
-	<View>
-		<TouchableOpacity
-			onPress={() => {
-				/* AND NOW?! */
-			}}
-		>
-			<Icon
-				type="font-awesome"
-				name="bars"
-				style={{ padding: 10, marginLeft: 10, fontSize: 20 }}
-			/>
-		</TouchableOpacity>
-	</View>
-);
-
-const QuizStackScreen = () => {
+const QuizStackScreen = ({ navigation }) => {
 	return (
 		<QuizStack.Navigator>
-			<QuizStack.Screen name="Quiz" component={Quiz} />
+			<QuizStack.Screen
+				name="Quiz"
+				component={Quiz}
+				options={{
+					headerLeft: () => {
+						return (
+							<TouchableOpacity onPress={() => navigation.openDrawer()}>
+								<Icon
+									name="bars"
+									type="font-awesome"
+									color="#50d3a7"
+									style={{
+										padding: 10,
+										marginRight: 10,
+										fontSize: 20,
+									}}
+								/>
+							</TouchableOpacity>
+						);
+					},
+				}}
+			/>
 		</QuizStack.Navigator>
 	);
 };
