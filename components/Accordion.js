@@ -76,12 +76,9 @@ const styles = StyleSheet.create({
 	},
 	accordionTitle: {
 		flexDirection: "row",
-		// justifyContent: "space-between",
-		height: 56,
+		height: 50,
 		paddingLeft: 25,
-		paddingRight: 18,
-		alignItems: "center",
-		backgroundColor: "lightgrey",
+		paddingRight: 25,
 		marginBottom: 5,
 	},
 	accordionBody: {
