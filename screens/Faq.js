@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Image, Button } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import Accordion from "../components/Accordion";
 
 export default class Faq extends Component {
@@ -51,31 +51,11 @@ const styles = StyleSheet.create({
 		height: "100%",
 		alignItems: "center",
 	},
-	mainText: {
-		fontSize: 16,
-		textAlign: "center",
-		marginBottom: 20,
-		lineHeight: 25,
-	},
-	subText: {
-		fontSize: 11,
-		textAlign: "center",
-		marginBottom: 20,
-	},
-	img: {
-		height: 200,
-		width: 200,
-		borderWidth: 3,
-		borderColor: "#50d3a7",
-	},
-	btn: {
-		backgroundColor: "#50d3a7",
-		padding: 10,
-	},
 	heading: {
 		fontSize: 32,
 		marginBottom: 40,
 		color: "#50d3a7",
 		fontWeight: "bold",
+		textAlign: "center",
 	},
 });
