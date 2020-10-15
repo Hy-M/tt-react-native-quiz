@@ -30,8 +30,8 @@ export default class Faq extends Component {
 					<Text style={styles.heading}>Frequently asked questions</Text>
 				</View>
 				<View style={styles.accordion}>
-					{faqData.map((faq) => {
-						return <Accordion title={faq.title} body={faq.data} />;
+					{faqData.map((faq, index) => {
+						return <Accordion key={index} title={faq.title} body={faq.data} />;
 					})}
 				</View>
 			</View>

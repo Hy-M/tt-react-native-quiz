@@ -67,6 +67,15 @@ export default class Quiz extends Component {
 		}
 	};
 
+	handleSubmit = () => {
+		const { selections } = this.state;
+		if (selections.length > 3 || !selections.length) {
+			alert("Please select between 1 and 3 choices");
+		} else {
+			this.setState({ submitChoices: true });
+		}
+	};
+
 	render() {
 		const { startQuiz, answers, submitChoices, selections } = this.state;
 		if (startQuiz) {
@@ -86,8 +95,9 @@ export default class Quiz extends Component {
 								<CheckBox
 									key={answer.id}
 									title={answer.choice}
-									checkedIcon=""
-									uncheckedIcon=""
+									iconType="material"
+									checkedIcon="add"
+									uncheckedIcon="add"
 									checked={this.state[answer.id] || false}
 									containerStyle={
 										selections.includes(answer.id)
@@ -100,9 +110,28 @@ export default class Quiz extends Component {
 								/>
 							))}
 						</View>
-						<TouchableOpacity
-							onPress={() => this.setState({ submitChoices: true })}
+						<View
+							style={{
+								flexDirection: "row",
+								width: "80%",
+								justifyContent: "space-evenly",
+							}}
 						>
+							{selections.map((id, index) => {
+								if (index <= 2) {
+									for (let choice of answers) {
+										if (choice["id"] == id) {
+											return (
+												<Text style={styles.mainText} key={id}>
+													{index + 1}: {choice.choice}
+												</Text>
+											);
+										}
+									}
+								}
+							})}
+						</View>
+						<TouchableOpacity onPress={() => this.handleSubmit()}>
 							<Text style={styles.btn}>Submit</Text>
 						</TouchableOpacity>
 					</View>

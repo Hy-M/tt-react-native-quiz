@@ -125,6 +125,5 @@ const styles = StyleSheet.create({
 	menuIcon: {
 		padding: 10,
 		marginLeft: 10,
-		// fontSize: 20,
 	},
 });
